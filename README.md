@@ -16,7 +16,7 @@ We need an item object describing the goods to be shipped :
 {
   length: 25.1, // number
   height: 20.2, // number
-  weight: 1, // number
+  weight: 1, // number, optional
   width: 5, // number
   value: {
     amount: 65000, // number
@@ -66,7 +66,7 @@ To get the Convelio widget to appear on your web app simply copy/paste the follo
   var current_item = {
     length: number,
     height: number,
-    weight: number,
+    weight: number, optional
     width: number,
     value: {
       amount: number,
@@ -124,7 +124,7 @@ Then, set up the Convelio widget settings on each of your product page where you
 var current_item = {
   length: number,
   height: number,
-  weight: number,
+  weight: number, optional
   width: number,
   value: {
     amount: number,
@@ -182,7 +182,7 @@ If your pickup address is the same for all your goods and you decided to set it 
 window.CVOQW.updateItem({
   length: number,
   height: number,
-  weight: number,
+  weight: number, optional
   width: number,
   value: {
     amount: number,
@@ -195,7 +195,7 @@ window.CVOQW.updateItem({
 });
 ```
 
-Keep in mind that the dimensions (`length`, `height`, `width`), `weight`, amount (`value.amount`) and `name` properties are mandatory !
+Keep in mind that the dimensions (`length`, `height`, `width`), amount (`value.amount`) and `name` properties are mandatory !
 
 If you don't update the `currency_code` property the price will be calculated using the default currency value (EUR).
 
