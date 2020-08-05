@@ -7,7 +7,6 @@ In order to give a shipping price to your visitors we need you to fulfill the fo
 
 > This is the minimum mandatory information needed for the widget to work properly. It can be set up in a global window `CVOQWSettings` object **before** loading the widget script, or **later on** by using the `CVOQW.settings` method.  
 
-
 #### <a name="item"></a> Item Object
 
 We need an item object describing the goods to be shipped :
@@ -50,6 +49,9 @@ We also need an address object to specify the location at which the goods will b
 
 > `country_code` is your country [ISO2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 
+#### <a name="item"></a> Your public API key
+
+Don't forget to also input your public API key (the one we gave you) while setting up the widget (either by using the global `CVOQWSettings` object, or by using the `CVOQW.settings` method as described below).
 
 ## How to install
 
