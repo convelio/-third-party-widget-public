@@ -7,6 +7,10 @@ In order to give a shipping price to your visitors we need you to fulfill the fo
 
 > This is the minimum mandatory information needed for the widget to work properly. It can be set up in a global window `CVOQWSettings` object **before** loading the widget script, or **later on** by using the `CVOQW.settings` method.  
 
+#### Company name
+
+We need your company name to create a quote. You'll be able to enter it in a parameter called `companyName` in the global window `CVOQWSettings` object.
+
 #### <a name="item"></a> Item Object
 
 We need an item object describing the goods to be shipped :
@@ -89,6 +93,7 @@ To get the Convelio widget to appear on your web app simply copy/paste the follo
   };
   window.CVOQWSettings = {
     publicApiKey: YOUR_PUBLIC_API_KEY,
+    comanyName: YOUR_COMPANY_NAME, // string
     item: current_item,
     pickupAddress: your_address
   };
@@ -99,7 +104,7 @@ To get the Convelio widget to appear on your web app simply copy/paste the follo
 
 > Note : see the [item object](#item) and [address object](#address) descriptions
 
-Make sure to correctly fulfill the `item`, `pickupAddress` and `publicApiKey` information in the global window `CVOQWSettings` object.
+Make sure to correctly fulfill the `item`, `pickupAddress`, `companyName` and `publicApiKey` information in the global window `CVOQWSettings` object.
 
 
 ## ... or Single Page App
@@ -147,6 +152,7 @@ var your_address = {
 };
 window.CVOQW.settings({
   publicApiKey: YOUR_PUBLIC_API_KEY,
+  comanyName: YOUR_COMPANY_NAME, // string
   item: current_item,
   pickupAddress: your_address
 });
@@ -156,7 +162,7 @@ As the widget is asynchronously loaded, the `CVOQW.settings` method must be call
 
 ### <a name="global"></a>Global settings
 
-The `publicApiKey` and `pickupAddress` settings may be declared only once when your app initializes or for instance in the initial CVOQW loading script : **step 1** would then becomes
+The `publicApiKey`, `companyName` and `pickupAddress` settings may be declared only once when your app initializes or for instance in the initial CVOQW loading script : **step 1** would then becomes
 
 ```
 <script>
@@ -170,6 +176,7 @@ The `publicApiKey` and `pickupAddress` settings may be declared only once when y
   };
   window.CVOQWSettings = {
     publicApiKey: YOUR_PUBLIC_API_KEY,
+    comanyName: YOUR_COMPANY_NAME, // string
     pickupAddress: your_address
   };
   (function(){var script=document.createElement("script");script.async=true;script.src="https://storage.googleapis.com/widget-convelio-com/cvoqw.js";var entry=document.getElementsByTagName("script")[0];entry.parentNode.insertBefore(script,entry)})();
