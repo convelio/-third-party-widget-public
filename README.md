@@ -93,7 +93,7 @@ To get the Convelio widget to appear on your web app simply copy/paste the follo
   };
   window.CVOQWSettings = {
     publicApiKey: YOUR_PUBLIC_API_KEY,
-    comanyName: YOUR_COMPANY_NAME, // string
+    companyName: YOUR_COMPANY_NAME, // string
     item: current_item,
     pickupAddress: your_address
   };
@@ -152,7 +152,7 @@ var your_address = {
 };
 window.CVOQW.settings({
   publicApiKey: YOUR_PUBLIC_API_KEY,
-  comanyName: YOUR_COMPANY_NAME, // string
+  companyName: YOUR_COMPANY_NAME, // string
   item: current_item,
   pickupAddress: your_address
 });
@@ -176,7 +176,7 @@ The `publicApiKey`, `companyName` and `pickupAddress` settings may be declared o
   };
   window.CVOQWSettings = {
     publicApiKey: YOUR_PUBLIC_API_KEY,
-    comanyName: YOUR_COMPANY_NAME, // string
+    companyName: YOUR_COMPANY_NAME, // string
     pickupAddress: your_address
   };
   (function(){var script=document.createElement("script");script.async=true;script.src="https://storage.googleapis.com/widget-convelio-com/cvoqw.js";var entry=document.getElementsByTagName("script")[0];entry.parentNode.insertBefore(script,entry)})();
