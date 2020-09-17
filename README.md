@@ -9,7 +9,7 @@ In order to give a shipping price to your visitors we need you to fulfill the fo
 
 #### Company name
 
-We need your company name to create a quote. You'll be able to enter it in a parameter called `companyName` in the global window `CVOQWSettings` object.
+We need the name of the company where the pickup occurs to create a quote. You'll be able to enter it in a parameter called `companyName` in the global window `CVOQWSettings` object.
 
 #### <a name="item"></a> Item Object
 
