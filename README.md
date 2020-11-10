@@ -19,8 +19,9 @@ We need an item object describing the goods to be shipped :
 {
   length: 25.1, // number
   height: 20.2, // number
-  weight: 1, // number, optional
   width: 5, // number
+  weight: 1, // number, optional
+  quantity: 1, // number, optional
   value: {
     amount: 65000, // number
     currency_code: "EUR" // string
@@ -33,6 +34,7 @@ We need an item object describing the goods to be shipped :
 ```
 
 > - `currency_code` can be 'EUR', 'USD' or 'GBP', default is 'EUR'
+> - `quantity` is optional and set to 1 by default, but can be explicitly indicated in the case of a batch of several identical objects (example: a pair of chairs).
 > - `measurement_system` can be 'metric' or 'us', default is 'metric'
 > - `packing_type` can be 'not_packed' or 'crated', default is 'not_packed'
 
@@ -51,7 +53,8 @@ We also need an address object to specify the location at which the goods will b
 }
 ```
 
-> `country_code` is your country [ISO2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+> - Try to fill in your address as accurately as possible. For instance `street` should be composed of a street number and a street name.
+> - `country_code` is your country [ISO2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 
 #### <a name="item"></a> Your public API key
 
@@ -72,8 +75,9 @@ To get the Convelio widget to appear on your web app simply copy/paste the follo
   var current_item = {
     length: number,
     height: number,
-    weight: number, optional
     width: number,
+    weight: number, // optional
+    quantity: number, // optional
     value: {
       amount: number,
       currency_code: string, // can be 'EUR', 'USD' or 'GBP'
@@ -84,12 +88,12 @@ To get the Convelio widget to appear on your web app simply copy/paste the follo
     packing_type: string // optional, can be 'not_packed' or 'crated'
   };
   var your_address = {
-    street: address_street_name_and_number, // string
-    city: address_city, // string
-    postcode: address_post_code, // string
-    state: address_state_or_region, // string
-    country: address_country, // string
-    country_code: address_country_code // string
+    street: string,
+    city: string,
+    postcode: string,
+    state: string,
+    country: string,
+    country_code: string
   };
   window.CVOQWSettings = {
     publicApiKey: YOUR_PUBLIC_API_KEY,
@@ -131,8 +135,9 @@ Then, set up the Convelio widget settings on each of your product page where you
 var current_item = {
   length: number,
   height: number,
-  weight: number, optional
   width: number,
+  weight: number, // optional
+  quantity: number, // optional
   value: {
     amount: number,
     currency_code: string, // can be 'EUR', 'USD' or 'GBP'
@@ -143,12 +148,12 @@ var current_item = {
   packing_type: string // optional, can be 'not_packed' or 'crated'
 };
 var your_address = {
-  street: address_street_name_and_number, // string
-  city: address_city, // string
-  postcode: address_post_code, // string
-  state: address_state_or_region, // string
-  country: address_country, // string
-  country_code: address_country_code // string
+  street: string,
+  city: string,
+  postcode: string,
+  state: string,
+  country: string,
+  country_code: string
 };
 window.CVOQW.settings({
   publicApiKey: YOUR_PUBLIC_API_KEY,
@@ -167,12 +172,12 @@ The `publicApiKey`, `companyName` and `pickupAddress` settings may be declared o
 ```
 <script>
   var your_address = {
-    street: address_street_name_and_number, // string
-    city: address_city, // string
-    postcode: address_post_code, // string
-    state: address_state_or_region, // string
-    country: address_country, // string
-    country_code: address_country_code // string
+    street: string,
+    city: string,
+    postcode: string,
+    state: string,
+    country: string,
+    country_code: string
   };
   window.CVOQWSettings = {
     publicApiKey: YOUR_PUBLIC_API_KEY,
@@ -191,8 +196,9 @@ If your pickup address is the same for all your goods and you decided to set it 
 window.CVOQW.updateItem({
   length: number,
   height: number,
-  weight: number, optional
   width: number,
+  weight: number, // optional
+  quantity: number, // optional
   value: {
     amount: number,
     currency_code: string
