@@ -231,3 +231,22 @@ ex.:
 In case you need to close the widget remotely you can simply use the following method : `window.CVOQW.close()`
 
 This can happen if you're embedding the widget in a SPA and you want the widget to close on a new navigation event (if the user is leaving a product page for example).
+
+# Customization
+
+You can add a `styles` parameter to the `CVOQWSettings` global object in order to customize the widget.
+
+For now the only available rule is `position`, which will display the widget on the left or right side of the screen.
+
+It should look like this :
+
+```
+window.CVOQWSettings = {
+  ...,
+  styles: {
+    position: string // 'left' or 'right'
+  }
+};
+```
+
+> We're planning to add more customizable parameters in the future to offer you a better embedding experience (like color customization for example).
