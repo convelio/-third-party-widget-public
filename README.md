@@ -33,7 +33,7 @@ We need an item object describing the goods to be shipped :
 }
 ```
 
-> - the `amount` is a unitary value, use a dot to add decimals value. In the previous example the item value is 65000€.
+> - the `amount` is a unitary value, use a dot to add decimal values. In the previous example the item value is 65000€.
 > - `currency_code` can be 'EUR', 'USD' or 'GBP', default is 'EUR'.
 > - `quantity` is optional and set to 1 by default, but can be explicitly indicated in the case of a batch of several identical objects (example: a pair of chairs).
 > - `measurement_system` can be 'metric' or 'us', default is 'metric'.
