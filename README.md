@@ -33,10 +33,11 @@ We need an item object describing the goods to be shipped :
 }
 ```
 
-> - `currency_code` can be 'EUR', 'USD' or 'GBP', default is 'EUR'
+> - the `amount` is a unitary value, use a dot to add decimals value. In the previous example the item value is 65000€.
+> - `currency_code` can be 'EUR', 'USD' or 'GBP', default is 'EUR'.
 > - `quantity` is optional and set to 1 by default, but can be explicitly indicated in the case of a batch of several identical objects (example: a pair of chairs).
-> - `measurement_system` can be 'metric' or 'us', default is 'metric'
-> - `packing_type` can be 'not_packed' or 'crated', default is 'not_packed'
+> - `measurement_system` can be 'metric' or 'us', default is 'metric'.
+> - `packing_type` can be 'not_packed' or 'crated', default is 'not_packed'.
 
 #### <a name="address"></a> Address Object
 
@@ -85,7 +86,7 @@ To get the Convelio widget to appear on your web app simply copy/paste the follo
     name: string,
     description: string, // optional
     measurement_system: string, // optional, can be 'metric' or 'us'
-    packing_type: string // optional, can be 'not_packed' or 'crated'
+    packing_type: string, // optional, can be 'not_packed' or 'crated'
   };
   var your_address = {
     street: string,
@@ -99,7 +100,8 @@ To get the Convelio widget to appear on your web app simply copy/paste the follo
     publicApiKey: YOUR_PUBLIC_API_KEY,
     companyName: YOUR_COMPANY_NAME, // string
     item: current_item,
-    pickupAddress: your_address
+    pickupAddress: your_address,
+    currency: string // optional, can be 'EUR', 'USD' or 'GBP', default is 'EUR'
   };
   
   (function(){var script=document.createElement("script");script.async=true;script.src="https://storage.googleapis.com/widget-convelio-com/cvoqw.js";var entry=document.getElementsByTagName("script")[0];entry.parentNode.insertBefore(script,entry)})();
@@ -107,6 +109,7 @@ To get the Convelio widget to appear on your web app simply copy/paste the follo
 ```
 
 > Note : see the [item object](#item) and [address object](#address) descriptions
+> The `currency` setting allows you to change the desired currency for the shipping prices displayed by the widget.
 
 Make sure to correctly fulfill the `item`, `pickupAddress`, `companyName` and `publicApiKey` information in the global window `CVOQWSettings` object.
 
@@ -159,15 +162,18 @@ window.CVOQW.settings({
   publicApiKey: YOUR_PUBLIC_API_KEY,
   companyName: YOUR_COMPANY_NAME, // string
   item: current_item,
-  pickupAddress: your_address
+  pickupAddress: your_address,
+  currency: string // optional, can be 'EUR', 'USD' or 'GBP', default is 'EUR'
 });
 ```
 
 As the widget is asynchronously loaded, the `CVOQW.settings` method must be called only once the widget has been properly and fully loaded.
 
+> The `currency` setting allows you to change the desired currency for the shipping prices displayed by the widget.
+
 ### <a name="global"></a>Global settings
 
-The `publicApiKey`, `companyName` and `pickupAddress` settings may be declared only once when your app initializes or for instance in the initial CVOQW loading script : **step 1** would then becomes
+The `publicApiKey`, `companyName`, `pickupAddress` and `currency` settings may be declared only once when your app initializes or for instance in the initial CVOQW loading script : **step 1** would then becomes
 
 ```
 <script>
@@ -182,7 +188,8 @@ The `publicApiKey`, `companyName` and `pickupAddress` settings may be declared o
   window.CVOQWSettings = {
     publicApiKey: YOUR_PUBLIC_API_KEY,
     companyName: YOUR_COMPANY_NAME, // string
-    pickupAddress: your_address
+    pickupAddress: your_address,
+    currency: string // optional, can be 'EUR', 'USD' or 'GBP', default is 'EUR'
   };
   (function(){var script=document.createElement("script");script.async=true;script.src="https://storage.googleapis.com/widget-convelio-com/cvoqw.js";var entry=document.getElementsByTagName("script")[0];entry.parentNode.insertBefore(script,entry)})();
 </script>
@@ -215,6 +222,17 @@ Keep in mind that the dimensions (`length`, `height`, `width`), amount (`value.a
 If you don't update the `currency_code` property the price will be calculated using the default currency value (EUR).
 
 The same behavior applies to the `measurement_system` and `packing_type` properties.
+
+
+### Changing the currency
+
+You can use the `changeCurrency` method if you want to dynamically update the currency of the shipping prices displayed by the widget.
+
+It uses a string for argument which can be 'EUR', 'USD' or 'GBP';
+
+```
+CVOQW.changeCurrency('USD'); // will change the currency to $
+```
 
 
 # Open the widget
