@@ -109,6 +109,7 @@ To get the Convelio widget to appear on your web app simply copy/paste the follo
 ```
 
 > Note : see the [item object](#item) and [address object](#address) descriptions
+> 
 > The `currency` setting allows you to change the desired currency for the shipping prices displayed by the widget.
 
 Make sure to correctly fulfill the `item`, `pickupAddress`, `companyName` and `publicApiKey` information in the global window `CVOQWSettings` object.
@@ -231,7 +232,7 @@ You can use the `changeCurrency` method if you want to dynamically update the cu
 It uses a string for argument which can be 'EUR', 'USD' or 'GBP';
 
 ```
-CVOQW.changeCurrency('USD'); // will change the currency to $
+window.CVOQW.changeCurrency('USD'); // will change the currency to $
 ```
 
 
